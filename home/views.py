@@ -19,7 +19,6 @@ def home(request):
 
 
 def login(request):
-    print("in log in page ")
     if request.method == 'POST':
         username = request.POST.get('username')
         pass1 = request.POST.get('pass1')
@@ -31,7 +30,7 @@ def login(request):
             return redirect('home')
         else:
             messages.error(request, "Bad Credentials!")
-            return redirect('login.html')
+            return redirect('login')
     return render(request, 'login.html')
 
 
