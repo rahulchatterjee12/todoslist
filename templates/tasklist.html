@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+{%load static  %}
+{%block style%}
+<link rel="stylesheet" href="{% static 'css/tasklist_style.css' %}">
+{%endblock style%}
+{% block title %}TO-DO-LIST - Task List{% endblock title %}
+
+{% block content %}
+<div id="wrapper">
+    <h1>Your Tasks Hear</h1>
+    
+    <table id="keywords" cellspacing="0" cellpadding="0">
+      <thead>
+        <tr>
+          <th><span>Sl.No.</span></th>
+          <th><span>Title</span></th>
+          <th><span>Information</span></th>
+          <th><span>Date</span></th>
+          <th><span>Actions</span></th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for task in tasks %}
+        <tr>
+          <th scope="row"> {{forloop.counter}} </th>
+          <td>{{task.title}}</td>
+          <td>{{task.info}}</td>
+          <td>{{task.date}}</td>
+          <td>
+            <button type="button" class="noselect"> <a href="edit/{{task.id}}" > Edit </a></button>
+            <span>/</span>
+            <button type="button" class="noselect"> <a href="delete/{{task.id}}" > Delete </a></button>
+          </td>
+        </tr>
+      {% endfor %}
+      </tbody>
+    </table>
+   </div>
+
+{% endblock content %}

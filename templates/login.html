@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+{%load static  %}
+{%block style%}
+<link rel="stylesheet" href="{% static 'css/login_style.css' %}">
+{%endblock style%}
+{% block title %}TO-DO-LIST - Log in{% endblock title %}
+
+{% block content %} 
+
+<h2 class="main-hedding">Log In</h2>
+<form action="login" method="post">
+    {% csrf_token %}
+    <div class="element">
+        <label >Username :</label>
+        <input type="text" id="username" name="username" placeholder="Create a Username (Only use letters and numbers)">
+    </div>
+    <div class="element">
+        <label >Password</label>
+        <input type="password" id="pass1" name="pass1" placeholder="Create a Password">
+    </div>
+    <button type="submit" class="noselect">  Log In </button>
+</form>
+
+
+{% endblock content %}

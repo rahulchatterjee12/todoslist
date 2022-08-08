@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+{%load static  %}
+{%block style%}
+<link rel="stylesheet" href="{% static 'css/home_style.css' %}">
+{%endblock style%}
+{% block title %}TO-DO-LIST - Home{% endblock title %}
+
+{% block content %}
+
+<div class="all-text">
+    <h2 class="main-hedding">Welcome to My To-Do's-List Website</h2>
+    <p class="my-text">
+        Hear you can add your task as well as you can also track your task and manage them.
+    </p>
+{% if user.is_authenticated %}
+    <p class="my-text">Hello! {{user.get_full_name}} you are loged in.</p>
+    <button type="submit" class="noselect"> <a href="task"> Go To Task </a></button>
+    <button type="submit" class="noselect"> <a href="logout"> Log Out </a></button>
+{% else %}
+    <button type="submit" class="noselect"> <a href="register"> Register </a></button>
+    <button type="submit" class="noselect"> <a href="login"> Log in </a></button>
+{% endif %}
+</div>
+
+<script>
+    srtTimeout(function(){
+        if($('#altm').length > 0){
+            $('#altm').remove();
+        }
+    },2000)
+</script>
+
+
+{% endblock content %} 
+

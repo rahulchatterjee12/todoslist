@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+{%load static %}
+{%block style%}
+<link rel="stylesheet" href="{% static 'css/task_style.css' %}">
+{%endblock style%}
+{% block title %}TO-DO-LIST - Edit Task{% endblock title %}
+
+{% block content %}
+
+<h2 class="main-hedding">Edit tasks</h2>
+<form action="/edit/{{id}}" method="post">
+  {% csrf_token %}
+  <div class="element">
+    <label>Task Title :</label>
+    <input type="text" id="title" name="title" value="{{title}}" placeholder="Give a title to your task">
+  </div>
+  <div class="element">
+    <label>About Task :</label>
+    <textarea type="text" id="info" name="info" rows="5" cols="33"
+      placeholder="Give some information about your task">{{info}}</textarea>
+  </div>
+  <div class="element">
+    <label>Target Date :</label> 
+    <input type="date" id="date" name="date" value="{{date}}" />
+  </div>
+  <button type="submit" class="noselect"> <a> Update </a></button>
+</form>
+{% endblock content %}

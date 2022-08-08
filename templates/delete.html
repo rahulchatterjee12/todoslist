@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+{%load static %}
+{%block style%}
+<link rel="stylesheet" href="{% static 'css/task_style.css' %}">
+{%endblock style%}
+{% block title %}TO-DO-LIST - Task{% endblock title %}
+
+{% block content %}
+
+<h2 class="main-hedding">Delete Your Task </h2>
+<p class="my-text">
+  Are you sure that you want to delete this : {{task.title}}
+</p>
+<p class="my-text">
+  Task information: {{task.info}} <br>date:{{task.date}}
+</p>
+<form action="/delete/{{task.id}}" method="POST">
+  {% csrf_token %}
+  <button type="submit" class="noselect"> <a> Delete </a></button>
+  <button type="submit" class="noselect"> <a href="edit/{{task_id}}"> Edit Instead </a></button>
+  <button type="submit" class="noselect"> <a href="/tasklist"> Cancel </a></button>
+</form>
+{% endblock content %}

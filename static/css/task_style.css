@@ -1,0 +1,116 @@
+@import url('https://fonts.googleapis.com/css2?family=Uchen&display=swap');
+/* font-family: 'Uchen', serif; */
+
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
+/* font-family: 'Bebas Neue', cursive; */
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-image: url(/static/img/bg.jpg);
+  background-position: center top;
+  background-size: cover;
+}
+
+.main-hedding {
+  display:flex;   
+  align-content: center;
+  justify-content: center;
+  padding: 5px;
+  font-size: 55px;
+  margin-top:10px;
+  font-family: 'Bebas Neue', cursive;
+}
+.my-text{
+  font-size: 20px;
+  padding:60px;
+  font-family: 'Uchen', serif;
+}
+
+.content {
+  display: inline-grid;
+  box-sizing: border-box;
+  text-align: center;
+  width: 80%;
+  padding: 1px 10px 10px;
+  margin-left: 8%;
+  margin-top: 10%;
+  height: 600px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 16px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  /* backdrop-filter: blur(5.7px);
+  -webkit-backdrop-filter: blur(0px); */
+  border: 1px solid rgba(255, 255, 255, 0.3);
+
+}
+
+.content .element {
+  padding: 10px;
+  margin: 5px;
+  font-family: 'Uchen', serif;
+}
+
+.content .element label {
+  padding: 10px;
+  font-size: 20px;
+  font-family: 'Uchen', serif;
+}
+
+.content .element input {
+  border: 1px solid black;
+  width: 40%;
+  height: 30px;
+  border-radius: 5px;
+  font-size: 20px;
+}
+
+.content .element textarea {
+  border: 1px solid black;
+  /* width: 40%;
+  height: 30px; */
+  border-radius: 5px;
+  font-size: 20px;
+}
+
+
+
+.noselect {
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  -webkit-tap-highlight-color: transparent;
+}
+
+button {
+  width: 150px;
+  height: 50px;
+  cursor: pointer;
+  border: none;
+  font-family: 'Comfortaa', cursive;
+  color: rgba(255, 255, 255, 0.5);
+  font-size: 20px;
+  border-radius: 4px;
+  box-shadow: inset 0px 3px 5px rgba(255, 255, 255, 0.5), 0px 0px 10px rgba(0, 0, 0, 0.15);
+  background: rgb(2, 0, 36);
+  background: linear-gradient(45deg, rgba(2, 0, 36, 0) 5%, rgba(255, 255, 255, .5) 6%, rgba(255, 255, 255, 0) 9%, rgba(255, 255, 255, .5) 10%, rgba(255, 255, 255, 0) 17%, rgba(255, 255, 255, .5) 19%, rgba(255, 255, 255, 0) 21%);
+  background-size: 150%;
+  background-position: right;
+  transition: 1s;
+}
+
+button:hover {
+  background-position: left;
+  color: white;
+  box-shadow: inset 0px 3px 5px rgba(255, 255, 255, 1), 0px 0px 10px rgba(0, 0, 0, 0.25);
+}
+
+button:focus {
+  outline: none;
+}

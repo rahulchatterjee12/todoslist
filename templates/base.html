@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {%load static  %}
+    <link rel="stylesheet" href="{% static 'css/navbar_style.css' %}">
+    {%block style%}
+    {%endblock style%}
+    <title>{%block title%}{%endblock title%}</title>
+</head>
+<body>
+{% if user.is_authenticated %}
+<nav class="nav">
+    <div class="container">
+        <div class="logo">
+            <a href="/">TO-DO's-LIST  :</a>
+            <a> {{user.get_full_name}}</a>
+        </div>
+        <div id="mainListDiv" class="main_list">
+            <ul class="navlinks">
+                <li><a href="/">Home</a></li>
+                <li><a href="task">Add Task</a></li>
+                <li><a href="tasklist">Task List</a></li>
+            </ul>
+        </div>
+        <span class="navTrigger">
+            <i></i>
+            <i></i>
+            <i></i>
+        </span>
+    </div>
+</nav>
+{% else %}
+    <nav class="nav">
+        <div class="container">
+            <div class="logo">
+                <a href="/">TO-DO's-LIST</a>
+            </div>
+            <div id="mainListDiv" class="main_list">
+                <ul class="navlinks">
+                    <li><a href="/">Home</a></li>
+                    <li><a href="register">Register</a></li>
+                    <li><a href="login">Log In</a></li>
+                </ul>
+            </div>
+            <span class="navTrigger">
+                <i></i>
+                <i></i>
+                <i></i>
+            </span>
+        </div>
+    </nav>
+{% endif %}
+
+    <div class="content">
+        {% include 'messages.html' %}
+        {%block content%}{%endblock content%}
+        </div>
+
+    <section class="home">
+    </section>
+
+<!-- Jquery needed -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script >
+        $('.navTrigger').click(function () {
+            $(this).toggleClass('active');
+            console.log("Clicked menu");
+            $("#mainListDiv").toggleClass("show_list");
+            $("#mainListDiv").fadeIn();
+        });
+        
+    </script>
+
+<!-- Function used to shrink nav bar removing paddings and adding black background -->
+    <script>
+        $(window).scroll(function() {
+            if ($(document).scrollTop() > 50) {
+                $('.nav').addClass('affix');
+                console.log("OK");
+            } else {
+                $('.nav').removeClass('affix');
+            }
+        });
+    </script>
+
+
+</body>
+</html> 
